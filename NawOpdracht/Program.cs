@@ -10,6 +10,7 @@ using NawOpdracht.Data.DataObjects;
 using NawOpdracht.services;
 using Newtonsoft.Json;
 
+
 namespace NawOpdracht
 {
     internal class Program
@@ -33,11 +34,25 @@ namespace NawOpdracht
             string streetName;
             string town;
             string houseNumber;
+                  
 
             // Todo gather Address information
-
-            Console.WriteLine("Enter your first name: ");
-            firstName = Console.ReadLine();
+            bool result = false;
+            do
+            {   Console.WriteLine("Enter your first name: ");
+                firstName = Console.ReadLine();
+                bool stringCheck = firstName.All(Char.IsLetter);
+                if (stringCheck == true)
+                {                    
+                    result = false;                   
+                }
+                else
+                {
+                    Console.WriteLine("Incorrect input , enter letters only");
+                    result = true;
+                }
+                
+            } while (result);  
 
             Console.WriteLine("Enter your last name: ");
             lastName = Console.ReadLine();
