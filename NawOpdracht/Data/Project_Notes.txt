@@ -1,7 +1,0 @@
-﻿27-06-2022
-		Was recieving 
-			"Inner Exception 1:
-			SqlException: Invalid object name 'Naw.Address'." Error .
-		Added { Database.EnsureCreated(); } to the dbContext constructor,
-		in MainDbContext.cs this resolved the issue.
----------------------------------------------------------------------------------------------

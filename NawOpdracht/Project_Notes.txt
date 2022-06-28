@@ -1,0 +1,14 @@
+﻿27-06-2022
+		Instead of LocalDB i Changed the database to an already existing and empty server stored locally.
+		(Named MOFOMACHINERC\\TIBERIUSSERVSQL)
+		To use this solution on your own system change the appsettings.json back to the original server:
+			(localdb)\mssqllocaldb
+---------------------------------------------------------------------------------------------
+
+		Was recieving 
+			"Inner Exception 1:
+			SqlException: Invalid object name 'Naw.Address'." Error .
+		Added { Database.EnsureCreated(); } to the dbContext constructor,
+		in MainDbContext.cs this resolved the issue.
+---------------------------------------------------------------------------------------------
+28-06-2022
