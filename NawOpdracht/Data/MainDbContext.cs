@@ -11,7 +11,7 @@ namespace NawOpdracht.Data
 
         public MainDbContext(DbContextOptions<MainDbContext> options) : base(options)
         {
-            //Added Method to ensure the tabels are created.(without this you will get an SqlExceptopn error)
+            //Added Method to ensure the tabels are created.(without this you will get an SqlException error)
             Database.EnsureCreated();
         }
 
