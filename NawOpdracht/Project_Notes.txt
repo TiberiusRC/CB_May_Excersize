@@ -12,3 +12,5 @@
 		in MainDbContext.cs this resolved the issue.
 ---------------------------------------------------------------------------------------------
 28-06-2022
+		Added Do-while loops te repeat several questions for string input.
+		Added a method to check if input is a valid string   : StringCheck().

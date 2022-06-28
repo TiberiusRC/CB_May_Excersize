@@ -35,45 +35,79 @@ namespace NawOpdracht
             string town;
             string houseNumber;
                   
-
             // Todo gather Address information
-            bool result = false;
+
+            // Do while loop to repeat the step if no string is submitted.
+            // StringCheck method to check if input is a valid string.
+            bool resultCheck = false;
             do
             {   Console.WriteLine("Enter your first name: ");
-                firstName = Console.ReadLine();
-                bool stringCheck = firstName.All(Char.IsLetter);
-                if (stringCheck == true)
-                {                    
-                    result = false;                   
+                firstName = Console.ReadLine();                
+                StringCheck(firstName,out resultCheck);               
+
+            } while (resultCheck);
+
+            // Do while loop to repeat the step if no string is submitted.
+            // StringCheck method to check if input is a valid string.
+            do
+            {
+                Console.WriteLine("Enter your last name: ");
+                lastName = Console.ReadLine();
+                StringCheck(lastName, out resultCheck);
+
+            } while (resultCheck);
+
+            do
+            {
+                Console.WriteLine("Enter your gender:(Male or Female) ");  
+                gender = Console.ReadLine();
+                
+                if (gender.ToLower() == "male")
+                {
+                    resultCheck = false;
+                }
+                else if(gender.ToLower() == "female")
+                {
+                    resultCheck = false;
                 }
                 else
                 {
-                    Console.WriteLine("Incorrect input , enter letters only");
-                    result = true;
+                    Console.WriteLine("-------------------------------------------------------");
+                    Console.WriteLine("- Incorrect input , enter ' Male ' or ' Female ' only -");
+                    Console.WriteLine("-------------------------------------------------------");
+                    resultCheck = true;
                 }
-                
-            } while (result);  
 
-            Console.WriteLine("Enter your last name: ");
-            lastName = Console.ReadLine();
+            } while (resultCheck);
 
-            Console.WriteLine("Enter your gender: ");
-            gender = Console.ReadLine();
 
-            Console.WriteLine("Enter your age: ");
+            Console.WriteLine("Enter your age: ");                                              //TODO a tryparse method here ?
 
             // Todo check the input data
             // Converted string to int
             age = Convert.ToInt32(Console.ReadLine());
 
+            // Do while loop to repeat the step if no string is submitted.
+            // StringCheck method to check if input is a valid string.
+            do
+            {
+                Console.WriteLine("Enter your streetName: ");  
+                streetName = Console.ReadLine();
+                StringCheck(streetName,out resultCheck);
 
-            Console.WriteLine("Enter your streetname: ");
-            streetName = Console.ReadLine();
+            } while (resultCheck);
 
-            Console.WriteLine("Enter your town: ");
-            town = Console.ReadLine();
+            // Do while loop to repeat the step if no string is submitted.
+            // StringCheck method to check if input is a valid string.
+            do
+            {
+                Console.WriteLine("Enter your town: ");
+                town = Console.ReadLine();
+                StringCheck(town, out resultCheck);
 
-            Console.WriteLine("Enter your houseNumber: ");
+            } while (resultCheck);
+
+            Console.WriteLine("Enter your houseNumber: ");          
             houseNumber = Console.ReadLine();
 
             var newPerson = new Person
@@ -142,6 +176,26 @@ namespace NawOpdracht
                 builder.UseSqlServer(connectionString);
 
                 return new MainDbContext(builder.Options);
+            }
+        }
+        public static bool StringCheck(string input ,out bool resultCheck)
+        {
+            bool stringCheck = input.All(Char.IsLetter);
+            //bool resultCheck;
+            if (stringCheck == true)
+            {
+                resultCheck = false;
+                return resultCheck;
+                
+            }
+            else
+            {
+                Console.WriteLine("----------------------------------------");
+                Console.WriteLine("- Incorrect input , enter letters only -");
+                Console.WriteLine("----------------------------------------");
+                resultCheck = true;
+                return resultCheck;
+               
             }
         }
     }
