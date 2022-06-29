@@ -19,7 +19,13 @@ namespace NawOpdracht
         static void Main(string[] args)
 
         {   //Opens console ta ask for user input.
-            CollectInfo.InfoConsole();
+            // CollectInfo.InfoConsole();
+
+            // Select a person from Db by ID.
+            Console.Write("Enter Person ID to see the details: ");
+            SearchPerson.SelectPerson(int.Parse(Console.ReadLine()));
+
+            //Edit a persons age.
 
             
             
