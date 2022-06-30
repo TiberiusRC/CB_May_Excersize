@@ -55,5 +55,5 @@ namespace NawOpdracht
             }
         }
 
-    } // Data Source=MOFOMACHINERC\\TIBERIUSSERVSQL;Database=NawOpdracht;Trusted_Connection=True;ConnectRetryCount=3
+    } 
 }
