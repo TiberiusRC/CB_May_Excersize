@@ -14,3 +14,10 @@
 28-06-2022
 		Added Do-while loops te repeat several questions for string input.
 		Added a method to check if input is a valid string   : StringCheck().
+---------------------------------------------------------------------------------------------
+29-06-2022
+		Made all user input to loop if input is incorrect.
+		Moved all User input files to a seperate class to clean up Program.cs
+		Added a class for Database query's
+		Started to make Db query to retrieve a person.
+--------------------------------------------------------------------------------------------
