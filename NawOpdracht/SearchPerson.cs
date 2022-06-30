@@ -7,9 +7,9 @@ namespace NawOpdracht
     internal class SearchPerson
     {
         //Method to show a Person by ID
-        public static void SelectPerson(int Id)             
-        {
-            using (SqlConnection newConnection = new SqlConnection("Data Source=MOFOMACHINERC\\TIBERIUSSERVSQL;Database=NawOpdracht;Trusted_Connection=True;ConnectRetryCount=3"))
+        public static void SelectPerson(int Id)
+        {          //Replace connectiong string for local use to : "Data Source=(localdb)\\mssqllocaldb;Database=NawOpdracht;Trusted_Connection=True;ConnectRetryCount=3"
+            using (SqlConnection newConnection = new SqlConnection("Data Source=(localdb)\\mssqllocaldb;Database=NawOpdracht;Trusted_Connection=True;ConnectRetryCount=3"))
             {
                 SqlCommand selectCommand = new SqlCommand("SELECT Firstname, LastName, Age, Gender FROM Naw.Person WHERE Id = " + Id, newConnection);
                 selectCommand.Connection.Open();
@@ -39,8 +39,8 @@ namespace NawOpdracht
         }
         //Method to change a Persons Age by ID
         public static void UpdatePersonAge(int Id,int Age)
-        {
-            using (SqlConnection newConnection = new SqlConnection("Data Source=MOFOMACHINERC\\TIBERIUSSERVSQL;Database=NawOpdracht;Trusted_Connection=True;ConnectRetryCount=3"))
+        {          //Replace connectiong string for local use to : "Data Source=(localdb)\\mssqllocaldb;Database=NawOpdracht;Trusted_Connection=True;ConnectRetryCount=3"
+            using (SqlConnection newConnection = new SqlConnection("Data Source=(localdb)\\mssqllocaldb;Database=NawOpdracht;Trusted_Connection=True;ConnectRetryCount=3"))
             {
                 SqlCommand selectCommand = new SqlCommand($"UPDATE Naw.Person SET Age ={+Age} WHERE Id = {+Id}", newConnection);
                 selectCommand.Connection.Open();
@@ -55,5 +55,5 @@ namespace NawOpdracht
             }
         }
 
-    }
+    } // Data Source=MOFOMACHINERC\\TIBERIUSSERVSQL;Database=NawOpdracht;Trusted_Connection=True;ConnectRetryCount=3
 }
